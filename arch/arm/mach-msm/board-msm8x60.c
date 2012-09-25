@@ -6901,6 +6901,7 @@ static struct i2c_registry msm8x60_i2c_devices[] __initdata = {
 		ARRAY_SIZE(msm_i2c_gsbi3_tdisc_info),
 	},
 #endif
+/*
 #if !defined(CONFIG_KTTECH_TOUCH_QT602240) && !defined(CONFIG_KTTECH_TOUCH_MCS7000) && !defined(CONFIG_KTTECH_TOUCH_QT602240_V3)
 	{
 		I2C_SURF | I2C_FFA | I2C_FLUID,
@@ -6909,6 +6910,7 @@ static struct i2c_registry msm8x60_i2c_devices[] __initdata = {
 		ARRAY_SIZE(cy8ctmg200_board_info),
 	},
 #endif // !defined(CONFIG_KTTECH_TOUCH_QT602240) && !defined(CONFIG_KTTECH_TOUCH_MCS7000)
+*/
 #if defined(CONFIG_TOUCHSCREEN_CYTTSP_I2C) || \
 		defined(CONFIG_TOUCHSCREEN_CYTTSP_I2C_MODULE)
 	{
@@ -10486,3 +10488,4 @@ MACHINE_START(MSM8X60_CHARM_FFA, "QCT MSM8X60 CHARM FFA")
 	.init_machine = msm8x60_charm_ffa_init,
 	.timer = &msm_timer,
 MACHINE_END
+
