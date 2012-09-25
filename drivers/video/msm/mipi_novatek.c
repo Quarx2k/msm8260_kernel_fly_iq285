@@ -135,7 +135,7 @@ static char set_height[5] = { /* DTYPE_DCS_LWRITE */
   If you hav a problem about backlight such as crashed display, 
   you will test again after unblocking  the below feature.
 */
-//#define FAST_FB_BL_BLOCK
+#define FAST_FB_BL_BLOCK
 #ifndef FAST_FB_BL_BLOCK
 static int fb_backlight_level=0;
 #endif
@@ -324,7 +324,7 @@ static int mipi_novatek_lcd_on(struct platform_device *pdev)
 	if (pinfo->is_3d_panel)
 		support_3d = TRUE;
 
-#ifdef CONFIG_MACH_KTTECH
+#ifndef CONFIG_MACH_KTTECH   //Fly IQ285 display no need it.
 	if(get_kttech_recovery())
 	{
 		on_skip = 0;
@@ -348,7 +348,7 @@ static int mipi_novatek_lcd_on(struct platform_device *pdev)
 		mipi_dsi_cmds_tx(mfd, &novatek_tx_buf, novatek_video_on_cmds,
 			ARRAY_SIZE(novatek_video_on_cmds));
 	} else {
-#ifdef CONFIG_MACH_KTTECH
+#ifndef CONFIG_MACH_KTTECH    //Fly IQ285 display no need it.
 	if(on_skip == 1)
 	{
 		mipi_dsi_cmds_tx(mfd, &novatek_tx_buf, novatek_video_on_cmds,
@@ -384,7 +384,7 @@ static int mipi_novatek_lcd_on(struct platform_device *pdev)
 static int mipi_novatek_lcd_off(struct platform_device *pdev)
 {
 	struct msm_fb_data_type *mfd;
-#ifdef CONFIG_MACH_KTTECH
+#ifndef CONFIG_MACH_KTTECH //Fly IQ285 display no need it.
 	if(get_kttech_recovery())
 	{
 		off_skip = 0;
@@ -467,7 +467,7 @@ static void mipi_tps1161_set_backlight(struct msm_fb_data_type *mfd)
 {
 	static int bl_level_old;
 
-	printk("!!!mipi_tps1161_set_backlight : fast[ %d ], current [%d], old [%d]\n", fb_backlight_level, mfd->bl_level, bl_level_old);
+	//printk("!!!mipi_tps1161_set_backlight : fast[ %d ], current [%d], old [%d]\n", fb_backlight_level, mfd->bl_level, bl_level_old);
 
   	if (bl_level_old == mfd->bl_level)
 	return;
