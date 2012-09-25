@@ -1,0 +1,10 @@
+obj-m := dmbdrv_kttech.o
+PWD := $(shell pwd)
+KDIR := $(ANDROID_BUILD_TOP)/kernel
+TARGET_OUT := $(OUT)/obj/KERNEL_OBJ
+all:
+# echo $(TARGET_OUT)
+	make -C $(KDIR) O=$(TARGET_OUT) ARCH=arm CROSS_COMPILE=arm-eabi- SUBDIRS=$(PWD) modules
+
+clean:
+	make -C $(KDIR) SUBDIRS=$(PWD) clean

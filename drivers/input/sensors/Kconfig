@@ -1,0 +1,24 @@
+#
+# Input sensor drivers configuration
+#
+
+menuconfig INPUT_SENSORS
+	bool "Sensor devices"
+	default y
+	help
+	  Say Y here, and a list of sensor input drivers will be displayed.
+	  This option doesn't affect the kernel.
+
+	  If unsure, say Y.
+
+if INPUT_SENSORS
+
+########## KT Tech Sensor Config Define Start##########
+
+### Compass
+config KTTECH_COMPASS_ALPS
+	bool
+
+########## KT Tech Kernel Config Define End##########
+
+endif
