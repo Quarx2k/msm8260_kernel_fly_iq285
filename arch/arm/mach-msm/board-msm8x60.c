@@ -6914,8 +6914,8 @@ static struct i2c_registry msm8x60_i2c_devices[] __initdata = {
 #if defined(CONFIG_TOUCHSCREEN_CYTTSP_I2C) || \
 		defined(CONFIG_TOUCHSCREEN_CYTTSP_I2C_MODULE)
 	{
-		I2C_FLUID,
-		MSM_GSBI3_QUP_I2C_BUS_ID,
+		I2C_SURF | I2C_FFA | I2C_FLUID,
+		MSM_GSBI7_QUP_I2C_BUS_ID,//MSM_GSBI3_QUP_I2C_BUS_ID,
 		cyttsp_fluid_info,
 		ARRAY_SIZE(cyttsp_fluid_info),
 	},
