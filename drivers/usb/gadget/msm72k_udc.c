@@ -60,6 +60,7 @@ static const char driver_name[] = "msm72k_udc";
 
 #define SETUP_BUF_SIZE     8
 
+#undef CONFIG_MACH_KTTECH
 
 static const char *const ep_name[] = {
 	"ep0out", "ep1out", "ep2out", "ep3out",

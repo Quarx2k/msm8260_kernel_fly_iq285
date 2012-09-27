@@ -34,6 +34,7 @@ static int is_not_first;
 struct wake_lock kttech_usb_wakelock;
 #endif
 
+#undef CONFIG_MACH_KTTECH
 
 /*
  * The code in this file is utility code, used to build a gadget driver
@@ -121,7 +122,7 @@ void usb_composite_force_reset(struct usb_composite_dev *cdev)
 		spin_unlock_irqrestore(&cdev->lock, flags);
 
 		usb_gadget_disconnect(cdev->gadget);
-#if CONFIG_MACH_KTTECH
+#ifdef CONFIG_MACH_KTTECH
 		msleep(50);
 #else
 		msleep(10);

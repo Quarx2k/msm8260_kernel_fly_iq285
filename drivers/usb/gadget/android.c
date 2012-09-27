@@ -36,7 +36,7 @@
 #include <linux/usb/gadget.h>
 
 #include "gadget_chips.h"
-
+#undef CONFIG_MACH_KTTECH
 /*
  * Kbuild is not very cooperative with respect to linking separately
  * compiled library objects into one module.  So for now we won't use
